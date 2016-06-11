@@ -1,0 +1,4 @@
+test\service\user\mgtm\UserMgmtServiceImpl.class
+test\service\user\mgtm\IUserMgmtService.class
+test\service\pojo\Person.class
+com\iop\SavarProjectService\NewSessionBean.class
