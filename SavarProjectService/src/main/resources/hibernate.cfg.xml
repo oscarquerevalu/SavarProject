@@ -21,6 +21,13 @@
  
      <mapping class="com.iop.SavarProjectService.dao.Almacen" />
      <mapping class="com.iop.SavarProjectService.dao.Costo_envio" />
+     <mapping class="com.iop.SavarProjectService.dao.Cliente_sucursal" />
+     <mapping class="com.iop.SavarProjectService.dao.Cliente" />
+     <mapping class="com.iop.SavarProjectService.dao.Control" />
+     <mapping class="com.iop.SavarProjectService.dao.Producto" />
+     <mapping class="com.iop.SavarProjectService.dao.Resultado" />
+     <mapping class="com.iop.SavarProjectService.dao.Sucursal" />
+     <mapping class="com.iop.SavarProjectService.dao.Vehiculo" />
  
  <!-- <mapping resource="com/mkyong/user/DBUser.hbm.xml"></mapping> -->
 </session-factory>
