@@ -11,4 +11,5 @@ public interface ResultadoDAO {
 	public List<Resultado> listResultados();
 	public Resultado getResultadoById(String id);
 	public void removeResultado(String id);	
+	public String getNextId();
 }

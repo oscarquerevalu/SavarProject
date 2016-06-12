@@ -55,4 +55,11 @@ public class ProductoServiceImpl implements ProductoService{
 		// TODO Auto-generated method stub
 		this.ProductoDAO.removeProducto(id);
 	}		
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.ProductoDAO.getNextId();
+	}	
 }

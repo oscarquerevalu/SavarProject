@@ -10,5 +10,6 @@ public interface SucursalDAO {
 	public List<Sucursal> listSucursals();
 	public Sucursal getSucursalById(String id);
 	public void removeSucursal(String id);	
+	public String getNextId();
 	
 }

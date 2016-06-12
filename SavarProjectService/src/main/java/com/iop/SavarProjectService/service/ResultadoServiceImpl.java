@@ -55,4 +55,11 @@ public class ResultadoServiceImpl implements ResultadoService{
 		// TODO Auto-generated method stub
 		this.ResultadoDAO.removeResultado(id);
 	}		
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.ResultadoDAO.getNextId();
+	}			
 }

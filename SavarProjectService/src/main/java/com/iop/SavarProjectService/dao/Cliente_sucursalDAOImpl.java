@@ -2,6 +2,7 @@ package com.iop.SavarProjectService.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -70,5 +71,26 @@ public class Cliente_sucursalDAOImpl implements Cliente_sucursalDAO{
 		
 	}
 	
+	public String getNextId(){
+		try{
+			Session session = this.sessionFactory.getCurrentSession();
+			org.hibernate.Transaction t = session.beginTransaction();
+			String sequel = "Select max(idCliente_sucursal) + 1 from Cliente_sucursal";
+			Query q = session.createQuery(sequel);
+			List currentSeq = q.list();
+			if(currentSeq == null){
+				return "1";
+			}else{
+				return currentSeq.get(0).toString();
+			}
+
+		}catch(Exception exc){
+			System.out.print("Unable to get latestID");
+			exc.printStackTrace();
+
+		}
+		return "1";
+
+	}
 	
 }

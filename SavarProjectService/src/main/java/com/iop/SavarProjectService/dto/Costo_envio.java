@@ -12,21 +12,20 @@ public class Costo_envio {
 	
 	@Id
 	@Column
-	private String idAlmacen;
+	private String idCosto_envio;
 	
 	@ManyToOne
 	private Almacen almacen;
+	
+	@ManyToOne
+	private Cliente_sucursal cliente_sucursal;
 	
 	@Column
 	private Double costo;
 	@Column
 	private Double costo_envio;
-	public String getIdAlmacen() {
-		return idAlmacen;
-	}
-	public void setIdAlmacen(String idAlmacen) {
-		this.idAlmacen = idAlmacen;
-	}
+	
+	
 	public Almacen getAlmacen() {
 		return almacen;
 	}
@@ -44,6 +43,18 @@ public class Costo_envio {
 	}
 	public void setCosto_envio(Double costo_envio) {
 		this.costo_envio = costo_envio;
+	}
+	public String getIdCosto_envio() {
+		return idCosto_envio;
+	}
+	public void setIdCosto_envio(String idCosto_envio) {
+		this.idCosto_envio = idCosto_envio;
+	}
+	public Cliente_sucursal getCliente_sucursal() {
+		return cliente_sucursal;
+	}
+	public void setCliente_sucursal(Cliente_sucursal cliente_sucursal) {
+		this.cliente_sucursal = cliente_sucursal;
 	}
 	
 }

@@ -55,4 +55,11 @@ public class SucursalServiceImpl implements SucursalService{
 		this.SucursalDAO.removeSucursal(id);
 	}		
 	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.SucursalDAO.getNextId();
+	}			
+	
 }

@@ -54,4 +54,11 @@ public class AlmacenServiceImpl implements AlmacenService{
 		// TODO Auto-generated method stub
 		this.almacenDAO.removeAlmacen(id);
 	}
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.almacenDAO.getNextId();
+	}	
 }

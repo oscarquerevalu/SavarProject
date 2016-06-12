@@ -11,5 +11,6 @@ public interface AlmacenDAO {
 	public List<Almacen> listAlmacens();
 	public Almacen getAlmacenById(String id);
 	public void removeAlmacen(String id);	
+	public String getNextId();
 	
 }

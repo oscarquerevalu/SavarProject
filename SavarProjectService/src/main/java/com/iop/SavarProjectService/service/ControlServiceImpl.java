@@ -54,5 +54,12 @@ public class ControlServiceImpl implements ControlService{
 		// TODO Auto-generated method stub
 		this.ControlDAO.removeControl(id);
 	}	
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.ControlDAO.getNextId();
+	}	
 
 }

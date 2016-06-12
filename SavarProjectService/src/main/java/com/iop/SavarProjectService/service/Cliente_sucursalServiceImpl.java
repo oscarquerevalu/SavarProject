@@ -54,4 +54,11 @@ public class Cliente_sucursalServiceImpl implements Cliente_sucursalService{
 		// TODO Auto-generated method stub
 		this.Cliente_sucursalDAO.removeCliente_sucursal(id);
 	}	
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.Cliente_sucursalDAO.getNextId();
+	}	
 }

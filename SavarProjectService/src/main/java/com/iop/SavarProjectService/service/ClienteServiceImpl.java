@@ -54,6 +54,13 @@ public class ClienteServiceImpl implements ClienteService{
 		// TODO Auto-generated method stub
 		this.ClienteDAO.removeCliente(id);
 	}	
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.ClienteDAO.getNextId();
+	}	
 
 	
 }

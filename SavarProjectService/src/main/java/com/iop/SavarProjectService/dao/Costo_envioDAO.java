@@ -11,4 +11,5 @@ public interface Costo_envioDAO {
 	public List<Costo_envio> listCosto_envios();
 	public Costo_envio getCosto_envioById(String id);
 	public void removeCosto_envio(String id);	
+	public String getNextId();
 }

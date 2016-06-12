@@ -11,5 +11,6 @@ public interface ClienteDAO {
 	public List<Cliente> listClientes();
 	public Cliente getClienteById(String id);
 	public void removeCliente(String id);
+	public String getNextId();
 	
 }

@@ -55,4 +55,11 @@ public class VehiculoServiceImpl implements VehiculoService{
 		// TODO Auto-generated method stub
 		this.VehiculoDAO.removeVehiculo(id);
 	}			
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.VehiculoDAO.getNextId();
+	}			
 }

@@ -13,7 +13,7 @@ public class Cliente {
 	@Id
 	private String idCliente;
 	
-	@OneToMany(mappedBy="sucursal",cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy="cliente",cascade=CascadeType.PERSIST)
 	@ElementCollection(targetClass=Cliente_sucursal.class)
 	private List<Cliente_sucursal> cliente_sucursals = new ArrayList<Cliente_sucursal>();
 	

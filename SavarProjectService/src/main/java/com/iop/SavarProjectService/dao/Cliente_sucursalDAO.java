@@ -11,5 +11,6 @@ public interface Cliente_sucursalDAO {
 	public List<Cliente_sucursal> listCliente_sucursals();
 	public Cliente_sucursal getCliente_sucursalById(String id);
 	public void removeCliente_sucursal(String id);	
+	public String getNextId();
 	
 }

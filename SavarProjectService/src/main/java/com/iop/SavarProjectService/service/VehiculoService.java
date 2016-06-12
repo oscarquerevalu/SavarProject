@@ -10,4 +10,5 @@ public interface VehiculoService {
 	public List<Vehiculo> listVehiculos();
 	public Vehiculo getVehiculoById(String id);
 	public void removeVehiculo(String id);		
+	public String getNextId();
 }

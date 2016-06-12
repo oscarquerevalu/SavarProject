@@ -55,5 +55,12 @@ public class Costo_envioServiceImpl implements Costo_envioService{
 		// TODO Auto-generated method stub
 		this.Costo_envioDAO.removeCosto_envio(id);
 	}	
+	
+	@Override
+	@Transactional
+	public String getNextId() {
+		// TODO Auto-generated method stub
+		return this.Costo_envioDAO.getNextId();
+	}	
 
 }

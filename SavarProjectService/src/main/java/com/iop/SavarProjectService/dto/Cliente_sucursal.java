@@ -29,6 +29,10 @@ public class Cliente_sucursal {
 	@OneToMany(mappedBy="cliente_sucursal",cascade=CascadeType.PERSIST)
 	@ElementCollection(targetClass=Resultado.class)
 	private List<Resultado> resultado = new ArrayList<Resultado>();
+	
+	@OneToMany(mappedBy="cliente_sucursal",cascade=CascadeType.PERSIST)
+	@ElementCollection(targetClass=Resultado.class)
+	private List<Costo_envio> costo_envio = new ArrayList<Costo_envio>();
 
 	public String getIdCliente_sucursal() {
 		return idCliente_sucursal;

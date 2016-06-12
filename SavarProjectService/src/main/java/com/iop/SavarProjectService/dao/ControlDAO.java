@@ -11,4 +11,5 @@ public interface ControlDAO {
 	public List<Control> listControls();
 	public Control getControlById(String id);
 	public void removeControl(String id);	
+	public String getNextId();
 }
