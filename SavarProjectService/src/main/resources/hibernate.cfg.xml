@@ -19,15 +19,15 @@
     <property name="connection.pool_size">1</property>
     <property name="current_session_context_class">thread</property>
  
-     <mapping class="com.iop.SavarProjectService.dao.Almacen" />
-     <mapping class="com.iop.SavarProjectService.dao.Costo_envio" />
-     <mapping class="com.iop.SavarProjectService.dao.Cliente_sucursal" />
-     <mapping class="com.iop.SavarProjectService.dao.Cliente" />
-     <mapping class="com.iop.SavarProjectService.dao.Control" />
-     <mapping class="com.iop.SavarProjectService.dao.Producto" />
-     <mapping class="com.iop.SavarProjectService.dao.Resultado" />
-     <mapping class="com.iop.SavarProjectService.dao.Sucursal" />
-     <mapping class="com.iop.SavarProjectService.dao.Vehiculo" />
+     <mapping class="com.iop.SavarProjectService.dto.Almacen" />
+     <mapping class="com.iop.SavarProjectService.dto.Costo_envio" />
+     <mapping class="com.iop.SavarProjectService.dto.Cliente_sucursal" />
+     <mapping class="com.iop.SavarProjectService.dto.Cliente" />
+     <mapping class="com.iop.SavarProjectService.dto.Control" />
+     <mapping class="com.iop.SavarProjectService.dto.Producto" />
+     <mapping class="com.iop.SavarProjectService.dto.Resultado" />
+     <mapping class="com.iop.SavarProjectService.dto.Sucursal" />
+     <mapping class="com.iop.SavarProjectService.dto.Vehiculo" />
  
  <!-- <mapping resource="com/mkyong/user/DBUser.hbm.xml"></mapping> -->
 </session-factory>

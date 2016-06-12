@@ -1,9 +1,109 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-	<bean id="userMgmtService"
-		class="test.service.user.mgtm.UserMgmtServiceImpl">
-	</bean>
-</beans>
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url"
+			value="jdbc:mysql://localhost:3306/bdsavariop" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="admin" />
+	</beans:bean>
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<beans:bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="annotatedClasses">
+			<beans:list>
+				<beans:value>com.iop.SavarProjectService.dto.Almacen</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Costo_envio</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Cliente_sucursal</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Cliente</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Control</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Producto</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Resultado</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Sucursal</beans:value>
+			    <beans:value>com.iop.SavarProjectService.dto.Vehiculo</beans:value>
+			</beans:list>
+		</beans:property>
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</beans:prop>
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<beans:prop key="show_sql">true</beans:prop>
+				<beans:prop key="format_sql">true</beans:prop>
+				<beans:prop key="hbm2ddl.auto">create</beans:prop>
+				<!-- JDBC connection pool (use the built-in) -->
+				<beans:prop key="connection.pool_size">1</beans:prop>
+				<beans:prop key="current_session_context_class">thread</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+		<beans:bean id="almacenDAO" class="com.iop.SavarProjectService.dao.AlmacenDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		<beans:bean id="costo_envioDAO" class="com.iop.SavarProjectService.dao.Costo_envioDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		<beans:bean id="clienteDAO" class="com.iop.SavarProjectService.dao.ClienteDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		<beans:bean id="controlDAO" class="com.iop.SavarProjectService.dao.ControlDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		<beans:bean id="productoDAO" class="com.iop.SavarProjectService.dao.ProductoDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		<beans:bean id="resultadoDAO" class="com.iop.SavarProjectService.dao.ResultadoDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		<beans:bean id="sucursalDAO" class="com.iop.SavarProjectService.dao.SucursalDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		<beans:bean id="vehiculoDAO" class="com.iop.SavarProjectService.dao.VehiculoDAOImpl">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		
+		<beans:bean id="almacenService" class="com.iop.SavarProjectService.service.AlmacenServiceImpl">
+			<beans:property name="almacenDAO" ref="almacenDAO"></beans:property>
+		</beans:bean>
+		<beans:bean id="costo_envioService" class="com.iop.SavarProjectService.service.Costo_envioServiceImpl">
+			<beans:property name="costo_envioDAO" ref="costo_envioDAO"></beans:property>
+		</beans:bean>
+		<beans:bean id="clienteService" class="com.iop.SavarProjectService.service.ClienteServiceImpl">
+			<beans:property name="clienteDAO" ref="clienteDAO"></beans:property>
+		</beans:bean>
+		<beans:bean id="controlService" class="com.iop.SavarProjectService.service.ControlServiceImpl">
+			<beans:property name="controlDAO" ref="controlDAO"></beans:property>
+		</beans:bean>
+		<beans:bean id="productoService" class="com.iop.SavarProjectService.service.ProductoServiceImpl">
+			<beans:property name="productoDAO" ref="productoDAO"></beans:property>
+		</beans:bean>
+		<beans:bean id="resultadoService" class="com.iop.SavarProjectService.service.ResultadoServiceImpl">
+			<beans:property name="resultadoDAO" ref="resultadoDAO"></beans:property>
+		</beans:bean>
+		<beans:bean id="sucursalService" class="com.iop.SavarProjectService.service.SucursalServiceImpl">
+			<beans:property name="sucursalDAO" ref="sucursalDAO"></beans:property>
+		</beans:bean>
+		<beans:bean id="vehiculoService" class="com.iop.SavarProjectService.service.VehiculoServiceImpl">
+			<beans:property name="vehiculoDAO" ref="vehiculoDAO"></beans:property>
+		</beans:bean>
+		<context:component-scan base-package="com.iop.SavarProjectService.service" />
+		<context:component-scan base-package="com.iop.SavarProjectService.dao" />
+		
+		<tx:annotation-driven transaction-manager="transactionManager"/>
+		
+		<beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+			<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+		</beans:bean>
+		
+		<beans:bean id="userMgmtService" class="test.service.user.mgtm.UserMgmtServiceImpl">
+		</beans:bean>
+</beans:beans>

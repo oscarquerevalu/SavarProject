@@ -1,4 +1,4 @@
-package com.iop.SavarProjectService.dao;
+package com.iop.SavarProjectService.dto;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.hibernate.*;
 
-import com.iop.SavarProjectService.dao.Almacen;
-import com.iop.SavarProjectService.dao.Control;
-import com.iop.SavarProjectService.dao.Resultado;
-import com.iop.SavarProjectService.dao.Vehiculo;
+import com.iop.SavarProjectService.dto.Almacen;
+import com.iop.SavarProjectService.dto.Control;
+import com.iop.SavarProjectService.dto.Resultado;
+import com.iop.SavarProjectService.dto.Vehiculo;
  
 public class HibernateTest {
  
