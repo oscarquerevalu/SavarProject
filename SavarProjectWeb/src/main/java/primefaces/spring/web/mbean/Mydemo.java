@@ -1,18 +1,20 @@
 package primefaces.spring.web.mbean;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import test.service.user.mgtm.IUserMgmtService;
+import com.iop.SavarProjectService.service.AlmacenService;
 
 @Component
 public class Mydemo {
 
 
-    @Autowired
-    private IUserMgmtService  myService; 
+	@Autowired(required=true)
+	@Qualifier(value="almacenService")
+    private AlmacenService  myService; 
 
     /**
      * @param args
@@ -34,7 +36,7 @@ public class Mydemo {
         // TODO Auto-generated method stub
         System.out.println("---callService---");
         System.out.println(myService);
-        myService.getPersonList();
+        myService.getAlmacenById("");
 
     }
 
