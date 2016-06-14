@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head><title>Almacén Mantenimiento</title></h:head>
+    <h:body>
+
+        <h:form id="formInsertar">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="NOMBRE DEL ALMACEN" />
+                <p:inputText value="#{almacenBean.almacen.ALMACEN}" />
+
+                <p:outputLabel value="CAPACIDAD TOTAL" />
+                <p:inputText value="#{almacenBean.almacen.CAP_TOTAL}" />
+
+                <p:outputLabel value="COSTO TOTAL" />
+                <p:inputText value="#{almacenBean.almacen.COSTO_TOTAL}" />
+
+                <p:outputLabel value="ALQUILER X METRO3" />
+                <p:inputText value="#{almacenBean.almacen.ALQUILER_X_M3}" />
+
+                <p:outputLabel value="VOLUMEN POR ALQUILER" />
+                <p:inputText value="#{almacenBean.almacen.VOLUMEN_ALQUILER}" />
+            </p:panelGrid>
+            <p:commandButton actionListener="#{almacenBean.addAlmacen()}" value="Agregar Almacen" update=":formMostrar" />
+        </h:form>
+
+        <h:form id="formMostrar">
+            <p:dataTable value="#{almacenBean.listAlmacens}" var="almacen" id="dataTable"
+                         emptyMessage="No hay almacenes por mostrar" paginator="true" rows="15" paginatorPosition="top"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
+                         {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="15">
+                <p:column headerText="Nombre del almacen">#{almacen.ALMACEN}</p:column>
+                <p:column headerText="Capacidad total">#{almacen.CAP_TOTAL}</p:column>
+                <p:column headerText="Costo total">#{almacen.COSTO_TOTAL}</p:column>
+                <p:column headerText="Alquiler x metro3">#{almacen.ALQUILER_X_M3}</p:column>
+                <p:column headerText="Volumen por alquiler">#{almacen.VOLUMEN_ALQUILER}</p:column>
+
+                <p:column headerText="Modificar">
+                    <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()" update=":formMostrar">
+                        <f:setPropertyActionListener target="#{almacenBean.almacen}" value="#{almacen}" />
+                    </p:commandButton>
+                </p:column>
+
+                <p:column headerText="Eliminar">
+                    <p:commandButton value="Eliminar" oncomplete="dlgeliminar.show()" update=":formMostrar">
+                        <f:setPropertyActionListener target="#{almacenBean.almacen}" value="#{almacen}" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+        <!--Modal para hacer update-->
+        <p:dialog id="dlg" header="Modifica el almacen" showEffect="explode" hideEffect="explode" widgetVar="dlgmodificar" modal="true"
+                  resizable="false" minWidth="200">
+            <h:form id="formModificar">
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre del almacen" />
+                    <p:inputText value="#{almacenBean.almacen.ALMACEN}" />
+                    <p:outputLabel value="Capacidad Total" />
+                    <p:inputText value="#{almacenBean.almacen.CAP_TOTAL}" />
+                    <p:outputLabel value="Costo Total" />
+                    <p:inputText value="#{almacenBean.almacen.COSTO_TOTAL}" />
+                    <p:outputLabel value="Alquiler x metro3" />
+                    <p:inputText value="#{almacenBean.almacen.ALQUILER_X_M3}" />
+                    <p:outputLabel value="Volumen por alquiler" />
+                    <p:inputText value="#{almacenBean.almacen.VOLUMEN_ALQUILER}" />
+                </p:panelGrid>
+                <p:commandButton value="Modificar" update=":formMostrar"
+                                 actionListener="#{almacenBean.updateAlmacen()}"
+                                 oncomplete="dlgmodificar.hide();"/>
+            </h:form>
+        </p:dialog>
+
+        <!--Modal para eliminar un cliente-->
+        <p:dialog id="dlg2" header="Elimina el almacen" showEffect="explode" hideEffect="explode" widgetVar="dlgeliminar" modal="true"
+                  resizable="false" minWidth="200">
+            <h:form id="formEliminar">
+                <h:outputText value="¿Desea eliminar?" />
+                <p:commandButton value="Si" update=":formMostrar"
+                                 actionListener="#{almacenBean.removeAlmacen()}"
+                                 oncomplete="dlgeliminar.hide();"/>
+                <p:commandButton value="No" onclick="dlg2.hide()" />
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</html>
+

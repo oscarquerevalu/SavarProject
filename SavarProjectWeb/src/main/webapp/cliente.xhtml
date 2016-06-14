@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head><title>Cliente Mantenimiento</title></h:head>
+    <h:body>
+
+        <h:form id="formInsertar">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="CLIENTE" />
+                <p:inputText value="#{clienteBean.cliente.CLIENTE}" />
+
+                <p:outputLabel value="ESTADO" />
+                <p:inputText value="#{clienteBean.cliente.CLI_ESTADO}" />
+            </p:panelGrid>
+            <p:commandButton actionListener="#{clienteBean.addCliente()}" value="Agregar Cliente" update=":formMostrar" />
+        </h:form>
+
+        <h:form id="formMostrar">
+            <p:dataTable value="#{clienteBean.listClientes}" var="cliente" id="dataTable"
+                         emptyMessage="No hay clientes por mostrar" paginator="true" rows="15" paginatorPosition="top"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
+                         {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="15">
+                <p:column headerText="Nombre del cliente">#{cliente.CLIENTE}</p:column>
+                <p:column headerText="Estado del cliente">#{cliente.CLI_ESTADO}</p:column>
+
+                <p:column headerText="Modificar">
+                    <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()" update=":formMostrar">
+                        <f:setPropertyActionListener target="#{clienteBean.cliente}" value="#{cliente}" />
+                    </p:commandButton>
+                </p:column>
+
+                <p:column headerText="Eliminar">
+                    <p:commandButton value="Eliminar" oncomplete="dlgeliminar.show()" update=":formMostrar">
+                        <f:setPropertyActionListener target="#{clienteBean.cliente}" value="#{cliente}" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+        <!--Modal para hacer update-->
+        <p:dialog id="dlg" header="Modifica el cliente" showEffect="explode" hideEffect="explode" widgetVar="dlgmodificar" modal="true"
+                  resizable="false" minWidth="200">
+            <h:form id="formModificar">
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre del cliente" />
+                    <p:inputText value="#{clienteBean.cliente.CLIENTE}" />
+                    <p:outputLabel value="Estado del cliente" />
+                    <p:inputText value="#{clienteBean.cliente.CLI_ESTADO}" />
+                </p:panelGrid>
+                <p:commandButton value="Modificar" update=":formMostrar"
+                                 actionListener="#{clienteBean.updateCliente()}"
+                                 oncomplete="dlgmodificar.hide();"/>
+            </h:form>
+        </p:dialog>
+
+        <!--Modal para eliminar un cliente-->
+        <p:dialog id="dlg2" header="Elimina el cliente" showEffect="explode" hideEffect="explode" widgetVar="dlgeliminar" modal="true"
+                  resizable="false" minWidth="200">
+            <h:form id="formEliminar">
+                <h:outputText value="¿Desea eliminar?" />
+                <p:commandButton value="Si" update=":formMostrar"
+                                 actionListener="#{clienteBean.removeCliente()}"
+                                 oncomplete="dlgeliminar.hide();"/>
+                <p:commandButton value="No" onclick="dlg2.hide()" />
+            </h:form>
+        </p:dialog>
+
+    </h:body>
+</html>
+
