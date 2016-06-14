@@ -21,6 +21,10 @@ public class Mydemo {
 	@Autowired(required=true)
 	@Qualifier(value="productoService")
     private ProductoService  productoService; 
+	
+	@Autowired(required=true)
+	@Qualifier(value="almacenService")
+    private AlmacenService  almacenService; 
 
     /**
      * @param args
@@ -44,14 +48,18 @@ public class Mydemo {
         System.out.println(myService);
 //        
 //        Producto producto = new Producto();
-//        producto.setIdProducto("1");
-//        producto.setNombre_producto("Pan");
+//        producto.setProducto("1");
 //        producto.setVolumen_m3(22.2);
+//        producto.setAlm_maximo(22.2);
+//        producto.setAlm_minimo(22.2);
+//        producto.setEnvio_minimo(22.2);;
 //        producto.setCantidad_producto(20);
 //        
 //        productoService.addProducto(producto);
 //        productoService.getProductoById("1");
-        System.out.println("NextId>>> "+myService.getNextId());
+        
+        almacenService.listAlmacens();
+//        System.out.println("NextId>>> "+myService.getNextId());
         
         
 

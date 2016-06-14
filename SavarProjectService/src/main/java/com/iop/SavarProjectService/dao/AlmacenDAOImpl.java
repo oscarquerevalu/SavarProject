@@ -2,6 +2,8 @@ package com.iop.SavarProjectService.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,6 +24,7 @@ public class AlmacenDAOImpl implements AlmacenDAO{
 	}
 
 	@Override
+	@Transactional
 	public void addAlmacen(Almacen a) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
@@ -31,6 +34,7 @@ public class AlmacenDAOImpl implements AlmacenDAO{
 	}
 
 	@Override
+	@Transactional
 	public void updateAlmacen(Almacen a) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
@@ -39,9 +43,11 @@ public class AlmacenDAOImpl implements AlmacenDAO{
 	}
 
 	@Override
+	@Transactional
 	public List<Almacen> listAlmacens() {
 		// TODO Auto-generated method stub
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
+//		org.hibernate.Transaction t = session.beginTransaction();
 		List<Almacen> almacensList = session.createQuery("from Almacen").list();
 		for(Almacen a : almacensList){
 			logger.info("Almacen List::"+a);
@@ -50,6 +56,7 @@ public class AlmacenDAOImpl implements AlmacenDAO{
 	}
 
 	@Override
+	@Transactional
 	public Almacen getAlmacenById(String id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();		
@@ -59,6 +66,7 @@ public class AlmacenDAOImpl implements AlmacenDAO{
 	}
 
 	@Override
+	@Transactional
 	public void removeAlmacen(String id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
@@ -70,6 +78,7 @@ public class AlmacenDAOImpl implements AlmacenDAO{
 
 	}
 
+	@Transactional
 	public String getNextId(){
 		try{
 			Session session = this.sessionFactory.getCurrentSession();

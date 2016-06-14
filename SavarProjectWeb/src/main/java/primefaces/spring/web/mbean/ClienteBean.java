@@ -65,6 +65,6 @@ public class ClienteBean {
     }
 
     public void removeCliente() {
-        clienteService.removeCliente(cliente.getIdCliente());
+        clienteService.removeCliente(cliente.getCliente());
     }
 }

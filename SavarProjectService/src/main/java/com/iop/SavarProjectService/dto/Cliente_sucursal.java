@@ -16,46 +16,38 @@ import javax.persistence.Table;
 @Table
 public class Cliente_sucursal {
 	
+	
+	@Column
+	private String cliente;
+	
+	@Column
+	private String sucursal;
+	
 	@Id
 	@Column
-	private String idCliente_sucursal;
-	
-	@ManyToOne
-	private Cliente cliente;
-	
-	@ManyToOne
-	private Sucursal sucursal;
-	
-	@OneToMany(mappedBy="cliente_sucursal",cascade=CascadeType.PERSIST)
-	@ElementCollection(targetClass=Resultado.class)
-	private List<Resultado> resultado = new ArrayList<Resultado>();
-	
-	@OneToMany(mappedBy="cliente_sucursal",cascade=CascadeType.PERSIST)
-	@ElementCollection(targetClass=Resultado.class)
-	private List<Costo_envio> costo_envio = new ArrayList<Costo_envio>();
+	private Double demanda;
 
-	public String getIdCliente_sucursal() {
-		return idCliente_sucursal;
-	}
-
-	public void setIdCliente_sucursal(String idCliente_sucursal) {
-		this.idCliente_sucursal = idCliente_sucursal;
-	}
-
-	public Cliente getCliente() {
+	public String getCliente() {
 		return cliente;
 	}
 
-	public void setCliente(Cliente cliente) {
+	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
 
-	public Sucursal getSucursal() {
+	public String getSucursal() {
 		return sucursal;
 	}
 
-	public void setSucursal(Sucursal sucursal) {
+	public void setSucursal(String sucursal) {
 		this.sucursal = sucursal;
 	}
-	
+
+	public Double getDemanda() {
+		return demanda;
+	}
+
+	public void setDemanda(Double demanda) {
+		this.demanda = demanda;
+	}
 }

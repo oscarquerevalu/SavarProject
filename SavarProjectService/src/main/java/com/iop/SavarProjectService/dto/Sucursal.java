@@ -1,48 +1,35 @@
 package com.iop.SavarProjectService.dto;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table
 public class Sucursal {
 	
-	@Column
 	@Id
-	private String idSucursal;
-	
-	@OneToMany(mappedBy="sucursal",cascade=CascadeType.PERSIST)
-	@ElementCollection(targetClass=Cliente_sucursal.class)
-	private List<Cliente_sucursal> cliente_sucursals = new ArrayList<Cliente_sucursal>();
+	@Column
+	private String sucursal;
 	
 	@Column
-	private String nombre_sucursal;
-	@Column
-	private String direccion_sucursal;
-	public String getIdSucursal() {
-		return idSucursal;
+	private String suc_estado;
+
+	public String getSucursal() {
+		return sucursal;
 	}
-	public void setIdSucursal(String idSucursal) {
-		this.idSucursal = idSucursal;
+
+	public void setSucursal(String sucursal) {
+		this.sucursal = sucursal;
 	}
-	public List<Cliente_sucursal> getCliente_sucursals() {
-		return cliente_sucursals;
+
+	public String getSuc_estado() {
+		return suc_estado;
 	}
-	public void setCliente_sucursals(List<Cliente_sucursal> cliente_sucursals) {
-		this.cliente_sucursals = cliente_sucursals;
+
+	public void setSuc_estado(String suc_estado) {
+		this.suc_estado = suc_estado;
 	}
-	public String getNombre_sucursal() {
-		return nombre_sucursal;
-	}
-	public void setNombre_sucursal(String nombre_sucursal) {
-		this.nombre_sucursal = nombre_sucursal;
-	}
-	public String getDireccion_sucursal() {
-		return direccion_sucursal;
-	}
-	public void setDireccion_sucursal(String direccion_sucursal) {
-		this.direccion_sucursal = direccion_sucursal;
-	}
+	
 }

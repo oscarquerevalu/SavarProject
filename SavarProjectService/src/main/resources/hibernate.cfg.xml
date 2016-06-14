@@ -4,30 +4,30 @@
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
  <session-factory>
-    <property name="connection.url">jdbc:mysql://localhost:3306/bdsavariop</property>
-    <property name="connection.username">root</property>
-    <property name="connection.password">admin</property>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<!--     <property name="connection.url">jdbc:microsoft:sqlserver://ServerIp:1433;user=sa;password=sa2112;databaseName=bdsavariop;</property> -->
+<!--     <property name="connection.url">jdbc:sqlserver://server:1433;DatabaseName=bdsavariop</property> -->
+	<property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=bdsavariop;user=sa;password=sa2112;</property>
+    <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
   
     <property name="show_sql">true</property>
   
     <property name="format_sql">true</property>
-    <property name="hbm2ddl.auto">create</property>
+<!--     <property name="hbm2ddl.auto">create</property> -->
   
     <!-- JDBC connection pool (use the built-in) -->
     <property name="connection.pool_size">1</property>
     <property name="current_session_context_class">thread</property>
  
      <mapping class="com.iop.SavarProjectService.dto.Almacen" />
-     <mapping class="com.iop.SavarProjectService.dto.Costo_envio" />
+     <mapping class="com.iop.SavarProjectService.dto.Cliente_costo" />
      <mapping class="com.iop.SavarProjectService.dto.Cliente_sucursal" />
      <mapping class="com.iop.SavarProjectService.dto.Cliente" />
-     <mapping class="com.iop.SavarProjectService.dto.Control" />
+<!--      <mapping class="com.iop.SavarProjectService.dto.Control" /> -->
      <mapping class="com.iop.SavarProjectService.dto.Producto" />
-     <mapping class="com.iop.SavarProjectService.dto.Resultado" />
+<!--      <mapping class="com.iop.SavarProjectService.dto.Resultado" /> -->
      <mapping class="com.iop.SavarProjectService.dto.Sucursal" />
-     <mapping class="com.iop.SavarProjectService.dto.Vehiculo" />
+<!--      <mapping class="com.iop.SavarProjectService.dto.Vehiculo" /> -->
  
  <!-- <mapping resource="com/mkyong/user/DBUser.hbm.xml"></mapping> -->
 </session-factory>

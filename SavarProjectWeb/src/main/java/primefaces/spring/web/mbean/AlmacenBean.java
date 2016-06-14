@@ -5,53 +5,68 @@
  */
 package primefaces.spring.web.mbean;
 
-import com.iop.SavarProjectService.dto.Almacen;
-import com.iop.SavarProjectService.service.AlmacenService;
 import java.util.List;
-import javax.inject.Named;
+
+import javax.annotation.ManagedBean;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
+
+import com.iop.SavarProjectService.dto.Almacen;
+import com.iop.SavarProjectService.service.AlmacenService;
+
+import primefaces.spring.web.service.AlmacenServices;
 
 /**
  *
  * @author LAquino
  */
-@Named(value = "almacenBean")
+@ManagedBean(value = "almacenBean")
 @ViewScoped
 public class AlmacenBean {
 
-    @Autowired(required = true)
-    @Qualifier(value = "almacenService")
-    private AlmacenService almacenService;
-    private Almacen almacen;
+	@Autowired
+    private AlmacenServices almacenServices;
+    private List<Almacen> listaAlmacens;
+    private Almacen almacen = new Almacen();
+    
+
+    @PostConstruct
+    public void init() {
+    	
+//    	almacen= new Almacen();
+//    	listaAlmacens = almacenService.listAlmacens();
+    }
 
     public void addAlmacen() {
-        almacenService.addAlmacen(almacen);
+//        almacenServices.addAlmacen(almacen);
     }
 
     public void updateAlmacen() {
-        almacenService.updateAlmacen(almacen);
+//        almacenServices.updateAlmacen(almacen);
     }
 
-    public List<Almacen> listAlmacens() {
-        return almacenService.listAlmacens();
+    public void listAlmacens() {
+    	
+    	System.out.println("Listando almacenes");
+        listaAlmacens = almacenServices.listAlmacens();
+        System.out.println("fin lista almacenes");
     }
 
     public Almacen getAlmacenById() {
-        return almacenService.getAlmacenById(almacen.getIdAlmacen());
+//        return almacenService.getAlmacenById(almacen.getAlmacen());
+    	return null;
     }
 
     public void removeAlmacen() {
-        almacenService.removeAlmacen(almacen.getIdAlmacen());
-    }
-
-    public AlmacenService getAlmacenService() {
-        return almacenService;
-    }
-
-    public void setAlmacenService(AlmacenService almacenService) {
-        this.almacenService = almacenService;
+//        almacenService.removeAlmacen(almacen.getAlmacen());
     }
 
     public Almacen getAlmacen() {
@@ -61,5 +76,13 @@ public class AlmacenBean {
     public void setAlmacen(Almacen almacen) {
         this.almacen = almacen;
     }
+
+	public List<Almacen> getListaAlmacens() {
+		return listaAlmacens;
+	}
+
+	public void setListaAlmacens(List<Almacen> listaAlmacens) {
+		this.listaAlmacens = listaAlmacens;
+	}
 
 }

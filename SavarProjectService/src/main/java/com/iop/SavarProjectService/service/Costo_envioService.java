@@ -2,14 +2,14 @@ package com.iop.SavarProjectService.service;
 
 import java.util.List;
 
-import com.iop.SavarProjectService.dto.Costo_envio;
+import com.iop.SavarProjectService.dto.Cliente_costo;
 
 public interface Costo_envioService {
 	
-	public void addCosto_envio(Costo_envio ce);
-	public void updateCosto_envio(Costo_envio c);
-	public List<Costo_envio> listCosto_envios();
-	public Costo_envio getCosto_envioById(String id);
+	public void addCosto_envio(Cliente_costo ce);
+	public void updateCosto_envio(Cliente_costo c);
+	public List<Cliente_costo> listCosto_envios();
+	public Cliente_costo getCosto_envioById(String id);
 	public void removeCosto_envio(String id);	
 	public String getNextId();
 }

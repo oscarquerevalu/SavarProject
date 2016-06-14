@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import com.iop.SavarProjectService.dto.Costo_envio;
+import com.iop.SavarProjectService.dto.Cliente_costo;
 
 @Repository
 public class Costo_envioDAOImpl implements Costo_envioDAO{
@@ -23,39 +23,39 @@ public class Costo_envioDAOImpl implements Costo_envioDAO{
 	}
 
 	@Override
-	public void addCosto_envio(Costo_envio a) {
+	public void addCosto_envio(Cliente_costo a) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
 		session.persist(a);
-		logger.info("Costo_envio saved successfully, Costo_envio Details="+a);
+		logger.info("Cliente_costo saved successfully, Cliente_costo Details="+a);
 		
 	}
 
 	@Override
-	public void updateCosto_envio(Costo_envio a) {
+	public void updateCosto_envio(Cliente_costo a) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
 		session.update(a);
-		logger.info("Costo_envio saved successfully, Almancen Details="+a);
+		logger.info("Cliente_costo saved successfully, Almancen Details="+a);
 	}
 
 	@Override
-	public List<Costo_envio> listCosto_envios() {
+	public List<Cliente_costo> listCosto_envios() {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		List<Costo_envio> Costo_enviosList = session.createQuery("from Costo_envio").list();
-		for(Costo_envio a : Costo_enviosList){
-			logger.info("Costo_envio List::"+a);
+		List<Cliente_costo> Costo_enviosList = session.createQuery("from Cliente_costo").list();
+		for(Cliente_costo a : Costo_enviosList){
+			logger.info("Cliente_costo List::"+a);
 		}
 		return Costo_enviosList;
 	}
 
 	@Override
-	public Costo_envio getCosto_envioById(String id) {
+	public Cliente_costo getCosto_envioById(String id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();		
-		Costo_envio a = (Costo_envio) session.load(Costo_envio.class, id);
-		logger.info("Costo_envio loaded successfully, Costo_envio details="+a);
+		Cliente_costo a = (Cliente_costo) session.load(Cliente_costo.class, id);
+		logger.info("Cliente_costo loaded successfully, Cliente_costo details="+a);
 		return a;
 	}
 
@@ -63,11 +63,11 @@ public class Costo_envioDAOImpl implements Costo_envioDAO{
 	public void removeCosto_envio(String id) {
 		// TODO Auto-generated method stub
 		Session session = this.sessionFactory.getCurrentSession();
-		Costo_envio a = (Costo_envio) session.load(Costo_envio.class, id);
+		Cliente_costo a = (Cliente_costo) session.load(Cliente_costo.class, id);
 		if(null != a){
 			session.delete(a);
 		}
-		logger.info("Costo_envio deleted successfully, Costo_envio details="+a);
+		logger.info("Cliente_costo deleted successfully, Cliente_costo details="+a);
 		
 	}
 	

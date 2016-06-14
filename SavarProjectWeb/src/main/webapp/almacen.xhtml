@@ -10,33 +10,34 @@
         <h:form id="formInsertar">
             <p:panelGrid columns="2">
                 <p:outputLabel value="NOMBRE DEL ALMACEN" />
-                <p:inputText value="#{almacenBean.almacen.ALMACEN}" />
+                <p:inputText value="#{almacenBean.almacen.almacen}" />
 
                 <p:outputLabel value="CAPACIDAD TOTAL" />
-                <p:inputText value="#{almacenBean.almacen.CAP_TOTAL}" />
+                <p:inputText value="#{almacenBean.almacen.cap_total}" />
 
                 <p:outputLabel value="COSTO TOTAL" />
-                <p:inputText value="#{almacenBean.almacen.COSTO_TOTAL}" />
+                <p:inputText value="#{almacenBean.almacen.costo_total}" />
 
                 <p:outputLabel value="ALQUILER X METRO3" />
-                <p:inputText value="#{almacenBean.almacen.ALQUILER_X_M3}" />
+                <p:inputText value="#{almacenBean.almacen.alquiler_x_m3}" />
 
                 <p:outputLabel value="VOLUMEN POR ALQUILER" />
-                <p:inputText value="#{almacenBean.almacen.VOLUMEN_ALQUILER}" />
+                <p:inputText value="#{almacenBean.almacen.volumen_alquiler}" />
             </p:panelGrid>
             <p:commandButton actionListener="#{almacenBean.addAlmacen()}" value="Agregar Almacen" update=":formMostrar" />
+            <p:commandButton action="#{almacenBean.listAlmacens}" value="Listar Almacen" update=":formMostrar" />
         </h:form>
 
         <h:form id="formMostrar">
-            <p:dataTable value="#{almacenBean.listAlmacens}" var="almacen" id="dataTable"
+            <p:dataTable value="#{almacenBean.listaAlmacens}" var="almacen" id="dataTable"
                          emptyMessage="No hay almacenes por mostrar" paginator="true" rows="15" paginatorPosition="top"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
                          {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="15">
-                <p:column headerText="Nombre del almacen">#{almacen.ALMACEN}</p:column>
-                <p:column headerText="Capacidad total">#{almacen.CAP_TOTAL}</p:column>
-                <p:column headerText="Costo total">#{almacen.COSTO_TOTAL}</p:column>
-                <p:column headerText="Alquiler x metro3">#{almacen.ALQUILER_X_M3}</p:column>
-                <p:column headerText="Volumen por alquiler">#{almacen.VOLUMEN_ALQUILER}</p:column>
+                <p:column headerText="Nombre del almacen">#{almacen.almacen}</p:column>
+                <p:column headerText="Capacidad total">#{almacen.cap_total}</p:column>
+                <p:column headerText="Costo total">#{almacen.costo_total}</p:column>
+                <p:column headerText="Alquiler x metro3">#{almacen.alquiler_x_m3}</p:column>
+                <p:column headerText="Volumen por alquiler">#{almacen.volumen_alquiler}</p:column>
 
                 <p:column headerText="Modificar">
                     <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()" update=":formMostrar">
@@ -58,15 +59,15 @@
             <h:form id="formModificar">
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Nombre del almacen" />
-                    <p:inputText value="#{almacenBean.almacen.ALMACEN}" />
+                    <p:inputText value="#{almacenBean.almacen.almacen}" />
                     <p:outputLabel value="Capacidad Total" />
-                    <p:inputText value="#{almacenBean.almacen.CAP_TOTAL}" />
+                    <p:inputText value="#{almacenBean.almacen.cap_total}" />
                     <p:outputLabel value="Costo Total" />
-                    <p:inputText value="#{almacenBean.almacen.COSTO_TOTAL}" />
+                    <p:inputText value="#{almacenBean.almacen.costo_total}" />
                     <p:outputLabel value="Alquiler x metro3" />
-                    <p:inputText value="#{almacenBean.almacen.ALQUILER_X_M3}" />
+                    <p:inputText value="#{almacenBean.almacen.alquiler_x_m3}" />
                     <p:outputLabel value="Volumen por alquiler" />
-                    <p:inputText value="#{almacenBean.almacen.VOLUMEN_ALQUILER}" />
+                    <p:inputText value="#{almacenBean.almacen.volumen_alquiler}" />
                 </p:panelGrid>
                 <p:commandButton value="Modificar" update=":formMostrar"
                                  actionListener="#{almacenBean.updateAlmacen()}"

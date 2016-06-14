@@ -11,8 +11,8 @@
 	<name>SavarProjectService</name>
 
 	<properties>
-<!-- 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir> -->
-<!-- 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
+		<!-- <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir> -->
+		<!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
 		<org.slf4j-version>1.7.5</org.slf4j-version>
 		<org.springframework-version>4.0.3.RELEASE</org.springframework-version>
 	</properties>
@@ -33,7 +33,7 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
-				 </exclusion>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -68,27 +68,27 @@
 			<version>4.0.1.Final</version>
 		</dependency>
 		<dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.0.0.GA</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.6.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.logging</groupId>
-            <artifactId>jboss-logging</artifactId>
-            <version>3.1.0.CR2</version>
-        </dependency>
- 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.10</version>
-        </dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.1.0.CR2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.10</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
@@ -106,7 +106,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.10</version>
 		</dependency>
-		
+
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -161,7 +161,7 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-				
+
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -179,9 +179,9 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
-<!-- 					<compilerArguments> -->
-<!-- 						<endorseddirs>${endorsed.dir}</endorseddirs> -->
-<!-- 					</compilerArguments> -->
+					<!-- <compilerArguments> -->
+					<!-- <endorseddirs>${endorsed.dir}</endorseddirs> -->
+					<!-- </compilerArguments> -->
 				</configuration>
 			</plugin>
 			<plugin>

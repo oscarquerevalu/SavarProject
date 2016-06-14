@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.iop.SavarProjectService.dao.Costo_envioDAO;
-import com.iop.SavarProjectService.dto.Costo_envio;
-import com.iop.SavarProjectService.dto.Costo_envio;
+import com.iop.SavarProjectService.dto.Cliente_costo;
+import com.iop.SavarProjectService.dto.Cliente_costo;
 
 @Service
 public class Costo_envioServiceImpl implements Costo_envioService{
@@ -22,7 +22,7 @@ public class Costo_envioServiceImpl implements Costo_envioService{
 
 	@Override
 	@Transactional
-	public void addCosto_envio(Costo_envio a) {
+	public void addCosto_envio(Cliente_costo a) {
 		// TODO Auto-generated method stub
 		this.Costo_envioDAO.addCosto_envio(a);
 		
@@ -30,21 +30,21 @@ public class Costo_envioServiceImpl implements Costo_envioService{
 
 	@Override
 	@Transactional
-	public void updateCosto_envio(Costo_envio a) {
+	public void updateCosto_envio(Cliente_costo a) {
 		// TODO Auto-generated method stub
 		this.Costo_envioDAO.updateCosto_envio(a);
 	}
 
 	@Override
 	@Transactional
-	public List<Costo_envio> listCosto_envios() {
+	public List<Cliente_costo> listCosto_envios() {
 		// TODO Auto-generated method stub
 		return this.Costo_envioDAO.listCosto_envios();
 	}
 
 	@Override
 	@Transactional
-	public Costo_envio getCosto_envioById(String id) {
+	public Cliente_costo getCosto_envioById(String id) {
 		// TODO Auto-generated method stub
 		return this.Costo_envioDAO.getCosto_envioById(id);
 	}

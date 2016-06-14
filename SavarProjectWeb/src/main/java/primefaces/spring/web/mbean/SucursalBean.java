@@ -43,7 +43,7 @@ public class SucursalBean {
     }
 
     public void removeSucursal() {
-        sucursalService.removeSucursal(sucursal.getIdSucursal());
+        sucursalService.removeSucursal(sucursal.getSucursal());
     }
 
     public SucursalService getSucursalService() {

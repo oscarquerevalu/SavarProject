@@ -43,7 +43,7 @@ public class ProductoBean {
     }
     
     public void removeProducto() {
-        productoService.removeProducto(producto.getIdProducto());
+        productoService.removeProducto(producto.getProducto());
     }
     
     public ProductoService getProductoService() {

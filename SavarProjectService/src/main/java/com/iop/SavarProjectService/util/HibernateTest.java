@@ -33,30 +33,30 @@ public static void main(String[] args) {
         for (Almacen next : resultList) {
             System.out.println("next employee: " + next);
         }
-        
-        q = session.createQuery("From Resultado ");
-        
-        List<Resultado> resultList2 = q.list();
-        System.out.println("num of employess:" + resultList.size());
-        for (Resultado next : resultList2) {
-            System.out.println("next employee: " + next);
-        }
-        
-        q = session.createQuery("From Vehiculo ");
-        
-        List<Vehiculo> resultList3 = q.list();
-        System.out.println("num of employess:" + resultList.size());
-        for (Vehiculo next : resultList3) {
-            System.out.println("next employee: " + next);
-        }
-        
-        q = session.createQuery("From Control ");
-        
-        List<Control> resultList4 = q.list();
-        System.out.println("num of employess:" + resultList.size());
-        for (Control next : resultList4) {
-            System.out.println("next employee: " + next);
-        }
+//        
+//        q = session.createQuery("From Resultado ");
+//        
+//        List<Resultado> resultList2 = q.list();
+//        System.out.println("num of employess:" + resultList.size());
+//        for (Resultado next : resultList2) {
+//            System.out.println("next employee: " + next);
+//        }
+//        
+//        q = session.createQuery("From Vehiculo ");
+//        
+//        List<Vehiculo> resultList3 = q.list();
+//        System.out.println("num of employess:" + resultList.size());
+//        for (Vehiculo next : resultList3) {
+//            System.out.println("next employee: " + next);
+//        }
+//        
+//        q = session.createQuery("From Control ");
+//        
+//        List<Control> resultList4 = q.list();
+//        System.out.println("num of employess:" + resultList.size());
+//        for (Control next : resultList4) {
+//            System.out.println("next employee: " + next);
+//        }
  
     }
     

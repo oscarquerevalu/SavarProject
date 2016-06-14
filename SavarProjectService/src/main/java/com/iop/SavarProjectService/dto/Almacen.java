@@ -11,26 +11,18 @@ public class Almacen {
 	
 	@Column
 	@Id
-	private String idAlmacen;
-	
-	@OneToMany(mappedBy="almacen",cascade=CascadeType.PERSIST)
-	@ElementCollection(targetClass=Costo_envio.class)
-	private List<Costo_envio> costo_envios = new ArrayList<Costo_envio>();
+	private String almacen;
 	@Column
 	private Integer cap_total;
 	@Column
 	private Double alquiler_x_m3;
 	@Column
+	private Double costo_total;
+	@Column
 	private Double volumen_alquiler;
 	@Column
 	private Integer flg_estado;
 	
-	public String getIdAlmacen() {
-		return idAlmacen;
-	}
-	public void setIdAlmacen(String idAlmacen) {
-		this.idAlmacen = idAlmacen;
-	}
 	public Integer getCap_total() {
 		return cap_total;
 	}
@@ -55,11 +47,17 @@ public class Almacen {
 	public void setFlg_estado(Integer flg_estado) {
 		this.flg_estado = flg_estado;
 	}
-	public List<Costo_envio> getCosto_envios() {
-		return costo_envios;
+	public String getAlmacen() {
+		return almacen;
 	}
-	public void setCosto_envios(List<Costo_envio> costo_envios) {
-		this.costo_envios = costo_envios;
+	public void setAlmacen(String almacen) {
+		this.almacen = almacen;
+	}
+	public Double getCosto_total() {
+		return costo_total;
+	}
+	public void setCosto_total(Double costo_total) {
+		this.costo_total = costo_total;
 	}
 	
 	

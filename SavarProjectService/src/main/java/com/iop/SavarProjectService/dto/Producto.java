@@ -9,34 +9,24 @@ import javax.persistence.Table;
 @Table
 public class Producto {
 	
-	@Column
 	@Id
-	private String idProducto;
-	
 	@Column
-	private String nombre_producto;
+	private String producto;
 	
 	@Column
 	private Integer cantidad_producto;
 	
 	@Column
 	private Double volumen_m3;
-
-	public String getIdProducto() {
-		return idProducto;
-	}
-
-	public void setIdProducto(String idProducto) {
-		this.idProducto = idProducto;
-	}
-
-	public String getNombre_producto() {
-		return nombre_producto;
-	}
-
-	public void setNombre_producto(String nombre_producto) {
-		this.nombre_producto = nombre_producto;
-	}
+	
+	@Column
+	private Double envio_minimo;
+	
+	@Column
+	private Double alm_minimo;
+	
+	@Column
+	private Double alm_maximo;
 
 	public Integer getCantidad_producto() {
 		return cantidad_producto;
@@ -53,5 +43,39 @@ public class Producto {
 	public void setVolumen_m3(Double volumen_m3) {
 		this.volumen_m3 = volumen_m3;
 	}
+
+	public String getProducto() {
+		return producto;
+	}
+
+	public void setProducto(String producto) {
+		this.producto = producto;
+	}
+
+	public Double getEnvio_minimo() {
+		return envio_minimo;
+	}
+
+	public void setEnvio_minimo(Double envio_minimo) {
+		this.envio_minimo = envio_minimo;
+	}
+
+	public Double getAlm_minimo() {
+		return alm_minimo;
+	}
+
+	public void setAlm_minimo(Double alm_minimo) {
+		this.alm_minimo = alm_minimo;
+	}
+
+	public Double getAlm_maximo() {
+		return alm_maximo;
+	}
+
+	public void setAlm_maximo(Double alm_maximo) {
+		this.alm_maximo = alm_maximo;
+	}
+	
+	
 	
 }
