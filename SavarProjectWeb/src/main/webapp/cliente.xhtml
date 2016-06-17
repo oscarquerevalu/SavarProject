@@ -10,21 +10,22 @@
         <h:form id="formInsertar">
             <p:panelGrid columns="2">
                 <p:outputLabel value="CLIENTE" />
-                <p:inputText value="#{clienteBean.cliente.CLIENTE}" />
+                <p:inputText value="#{clienteBean.cliente.cliente}" />
 
                 <p:outputLabel value="ESTADO" />
-                <p:inputText value="#{clienteBean.cliente.CLI_ESTADO}" />
+                <p:inputText value="#{clienteBean.cliente.cli_estado}" />
             </p:panelGrid>
             <p:commandButton actionListener="#{clienteBean.addCliente()}" value="Agregar Cliente" update=":formMostrar" />
+            <p:commandButton action="#{clienteBean.listClientes}" value="Listar Clientes" update=":formMostrar" />
         </h:form>
 
         <h:form id="formMostrar">
-            <p:dataTable value="#{clienteBean.listClientes}" var="cliente" id="dataTable"
+            <p:dataTable value="#{clienteBean.lstClientes}" var="cliente" id="dataTable"
                          emptyMessage="No hay clientes por mostrar" paginator="true" rows="15" paginatorPosition="top"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
                          {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="15">
-                <p:column headerText="Nombre del cliente">#{cliente.CLIENTE}</p:column>
-                <p:column headerText="Estado del cliente">#{cliente.CLI_ESTADO}</p:column>
+                <p:column headerText="Nombre del cliente">#{cliente.cliente}</p:column>
+                <p:column headerText="Estado del cliente">#{cliente.cli_estado}</p:column>
 
                 <p:column headerText="Modificar">
                     <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()" update=":formMostrar">
@@ -46,9 +47,9 @@
             <h:form id="formModificar">
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Nombre del cliente" />
-                    <p:inputText value="#{clienteBean.cliente.CLIENTE}" />
+                    <p:inputText value="#{clienteBean.cliente.cliente}" />
                     <p:outputLabel value="Estado del cliente" />
-                    <p:inputText value="#{clienteBean.cliente.CLI_ESTADO}" />
+                    <p:inputText value="#{clienteBean.cliente.cli_estado}" />
                 </p:panelGrid>
                 <p:commandButton value="Modificar" update=":formMostrar"
                                  actionListener="#{clienteBean.updateCliente()}"

@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
 
@@ -10,18 +11,25 @@
 
 <h:body>
 
-	<h:form id="form">
+	<h:form id="formTv">
 
-		<p:dataTable value="#{testService.personList}" var="person" id="dataTable">
-			<p:column headerText="Name">#{person.name}</p:column>
-
-			<p:column headerText="Address">#{person.address}</p:column>
-			<p:column headerText="Age">#{person.age}</p:column>
-		</p:dataTable>
-		<p:separator></p:separator>
-		
-			<p:commandButton value="Populate"
-			actionListener="#{testService.populatePersonList}" update="form:dataTable"></p:commandButton>
+<p:tabView id="tbView">
+        <p:tab title="Godfather Part I" id="tv">
+            <h:panelGrid columns="2" cellpadding="10">
+                <ui:include src="almacen.xhtml"/>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part II">
+            <h:panelGrid columns="2" cellpadding="10">
+                <ui:include src="producto.xhtml"/>
+            </h:panelGrid>
+        </p:tab>
+        <p:tab title="Godfather Part III">
+            <h:panelGrid columns="2" cellpadding="10">
+                <ui:include src="cliente.xhtml"/>
+            </h:panelGrid>
+        </p:tab>
+    </p:tabView>
 			
 	</h:form>
 

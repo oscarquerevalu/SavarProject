@@ -42,7 +42,7 @@ public class ClienteDAOImpl implements ClienteDAO{
 	@Override
 	public List<Cliente> listClientes() {
 		// TODO Auto-generated method stub
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
 		List<Cliente> ClientesList = session.createQuery("from Cliente").list();
 		for(Cliente a : ClientesList){
 			logger.info("Cliente List::"+a);

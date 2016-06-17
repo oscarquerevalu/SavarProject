@@ -27,7 +27,7 @@ public class AlmacenDAOImpl implements AlmacenDAO{
 	@Transactional
 	public void addAlmacen(Almacen a) {
 		// TODO Auto-generated method stub
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
 		session.persist(a);
 		logger.info("Almacen saved successfully, Almancen Details="+a);
 

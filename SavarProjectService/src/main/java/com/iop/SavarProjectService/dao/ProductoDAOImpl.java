@@ -42,7 +42,7 @@ public class ProductoDAOImpl implements ProductoDAO{
 	@Override
 	public List<Producto> listProductos() {
 		// TODO Auto-generated method stub
-		Session session = this.sessionFactory.getCurrentSession();
+		Session session = this.sessionFactory.openSession();
 		List<Producto> ProductosList = session.createQuery("from Producto").list();
 		for(Producto a : ProductosList){
 			logger.info("Producto List::"+a);

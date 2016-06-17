@@ -10,37 +10,38 @@
         <h:form id="formInsertar">
             <p:panelGrid columns="2">
                 <p:outputLabel value="NOMBRE DEL PRODUCTO" />
-                <p:inputText value="#{productoBean.producto.PRODUCTO}" />
+                <p:inputText value="#{productoBean.producto.producto}" />
 
                 <p:outputLabel value="VOLUMEN_M3" />
-                <p:inputText value="#{productoBean.producto.VOLUMEN_M3}" />
+                <p:inputText value="#{productoBean.producto.volumen_m3}" />
 
                 <p:outputLabel value="CANTIDAD DEL PRODUCTO" />
-                <p:inputText value="#{productoBean.producto.CANTIDAD_PRODUCTO}" />
+                <p:inputText value="#{productoBean.producto.cantidad_producto}" />
 
                 <p:outputLabel value="ENVIO MINIMO" />
-                <p:inputText value="#{productoBean.producto.ENVIO_MINIMO}" />
+                <p:inputText value="#{productoBean.producto.envio_minimo}" />
 
                 <p:outputLabel value="ALMACEN MINIMO" />
-                <p:inputText value="#{productoBean.producto.ALM_MINIMO}" />
+                <p:inputText value="#{productoBean.producto.alm_minimo}" />
 
                 <p:outputLabel value="ALMACEN MAXIMO" />
-                <p:inputText value="#{productoBean.producto.ALM_MAXIMO}" />
+                <p:inputText value="#{productoBean.producto.alm_maximo}" />
             </p:panelGrid>
             <p:commandButton actionListener="#{productoBean.addProducto()}" value="Agregar producto" update=":formMostrar" />
+            <p:commandButton action="#{productoBean.listProductos}" value="Listar productos" update=":formMostrar" />
         </h:form>
 
         <h:form id="formMostrar">
-            <p:dataTable value="#{productoBean.listProductos}" var="producto" id="dataTable"
+            <p:dataTable value="#{productoBean.lstProductos}" var="producto" id="dataTable"
                          emptyMessage="No hay prouctos por mostrar" paginator="true" rows="15" paginatorPosition="top"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
                          {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="15">
-                <p:column headerText="Nombre del producto">#{producto.PRODUCTO}</p:column>
-                <p:column headerText="Volumen m3">#{producto.VOLUMEN_M3}</p:column>
-                <p:column headerText="Cantidad del producto">#{producto.CANTIDAD_PRODUCTO}</p:column>
-                <p:column headerText="Envío mínimo">#{producto.ENVIO_MINIMO}</p:column>
-                <p:column headerText="Almacen mínimo">#{producto.ALM_MINIMO}</p:column>
-                <p:column headerText="Almacen máximo">#{producto.ALM_MAXIMO}</p:column>
+                <p:column headerText="Nombre del producto">#{producto.producto}</p:column>
+                <p:column headertext="volumen m3">#{producto.volumen_m3}</p:column>
+                <p:column headertext="cantidad del producto">#{producto.cantidad_producto}</p:column>
+                <p:column headertext="envío mínimo">#{producto.envio_minimo}</p:column>
+                <p:column headertext="almacen mínimo">#{producto.alm_minimo}</p:column>
+                <p:column headertext="almacen máximo">#{producto.alm_maximo}</p:column>
 
                 <p:column headerText="Modificar">
                     <p:commandButton value="Modificar" oncomplete="dlgmodificar.show()" update=":formMostrar">
@@ -62,17 +63,17 @@
             <h:form id="formModificar">
                 <p:panelGrid columns="2">
                     <p:outputLabel value="Nombre del producto" />
-                    <p:inputText value="#{productoBean.producto.PRODUCTO}" />
-                    <p:outputLabel value="Volumen m3" />
-                    <p:inputText value="#{productoBean.producto.VOLUMEN_M3}" />
-                    <p:outputLabel value="Cantidad del producto" />
-                    <p:inputText value="#{productoBean.producto.CANTIDAD_PRODUCTO}" />
-                    <p:outputLabel value="Envío mínimo" />
-                    <p:inputText value="#{productoBean.producto.ENVIO_MINIMO}" />
-                    <p:outputLabel value="Almacen mínimo" />
-                    <p:inputText value="#{productoBean.producto.ALM_MINIMO}" />
-                    <p:outputLabel value="Almacen máximo" />
-                    <p:inputText value="#{productoBean.producto.ALM_MAXIMO}" />
+                    <p:inputText value="#{productoBean.producto.producto}" />
+                    <p:outputLabel value="volumen m3" />
+                    <p:inputText value="#{productobean.producto.volumen_m3}" />
+                    <p:outputLabel value="cantidad del producto" />
+                    <p:inputText value="#{productobean.producto.cantidad_producto}" />
+                    <p:outputLabel value="envío mínimo" />
+                    <p:inputText value="#{productobean.producto.envio_minimo}" />
+                    <p:outputLabel value="almacen mínimo" />
+                    <p:inputText value="#{productobean.producto.alm_minimo}" />
+                    <p:outputLabel value="almacen máximo" />
+                    <p:inputText value="#{productobean.producto.alm_maximo}" />
                 </p:panelGrid>
                 <p:commandButton value="Modificar" update=":formMostrar"
                                  actionListener="#{productoBean.updateProducto()}"

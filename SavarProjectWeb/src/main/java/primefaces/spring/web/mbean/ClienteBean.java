@@ -24,7 +24,8 @@ public class ClienteBean {
     @Autowired(required = true)
     @Qualifier(value = "clienteService")
     private ClienteService clienteService;
-    private Cliente cliente;
+    private Cliente cliente = new Cliente();
+    private List<Cliente> lstClientes;
 
     public ClienteService getClienteService() {
         return clienteService;
@@ -56,8 +57,8 @@ public class ClienteBean {
         clienteService.updateCliente(getCliente());
     }
 
-    public List<Cliente> listClientes() {
-        return clienteService.listClientes();
+    public void listClientes() {
+        lstClientes = clienteService.listClientes();
     }
 
     public Cliente getClienteById(String id) {
@@ -67,4 +68,14 @@ public class ClienteBean {
     public void removeCliente() {
         clienteService.removeCliente(cliente.getCliente());
     }
+
+	public List<Cliente> getLstClientes() {
+		return lstClientes;
+	}
+
+	public void setLstClientes(List<Cliente> lstClientes) {
+		this.lstClientes = lstClientes;
+	}
+    
+    
 }

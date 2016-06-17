@@ -24,7 +24,8 @@ public class ProductoBean {
     @Autowired(required = true)
     @Qualifier(value = "productoService")
     private ProductoService productoService;
-    private Producto producto;
+    private List<Producto> lstProductos;
+    private Producto producto = new Producto();
     
     public void addProducto() {
         productoService.addProducto(producto);
@@ -34,8 +35,8 @@ public class ProductoBean {
         productoService.updateProducto(producto);
     }
     
-    public List<Producto> listProductos() {
-        return productoService.listProductos();
+    public void listProductos() {
+    	lstProductos = productoService.listProductos();
     }
     
     public Producto getProductoById(String id) {
@@ -61,5 +62,15 @@ public class ProductoBean {
     public void setProducto(Producto producto) {
         this.producto = producto;
     }
+
+	public List<Producto> getLstProductos() {
+		return lstProductos;
+	}
+
+	public void setLstProductos(List<Producto> lstProductos) {
+		this.lstProductos = lstProductos;
+	}
+    
+    
     
 }
